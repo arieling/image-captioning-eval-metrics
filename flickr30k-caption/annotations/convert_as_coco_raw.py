@@ -18,7 +18,8 @@ for i in range(len(annots)):
         annotations = {}
 
         images['file_name'] = annots[i]['filename']
-        images['id'] = annots[i]['imgid']
+        # images['id'] = annots[i]['imgid']
+        images['id'] = int(annots[i]['filename'].split('.')[0])
         data['images'].append(images)
 
         annotations['image_id'] = int(annots[i]['filename'].split('.')[0])
