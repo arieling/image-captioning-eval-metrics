@@ -1,7 +1,7 @@
 import os
 import json
 
-annots_raw = json.load(open('./dataset.json', 'r'))
+annots_raw = json.load(open('./dataset_flickr30k.json', 'r'))
 
 annots = annots_raw['images'] # a list
 
@@ -21,7 +21,7 @@ for i in range(len(annots)):
         images['id'] = annots[i]['imgid']
         data['images'].append(images)
 
-        annotations['image_id'] = annots[i]['imgid']
+        annotations['image_id'] = int(annots[i]['filename'].split('.')[0])
         annotations['caption'] = sent['raw']
         annotations['id'] = sent['sentid']
         data['annotations'].append(annotations)
